@@ -1,13 +1,14 @@
 "use client"
 
 import type React from "react"
+
 import { useState, useRef, useEffect } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { ScrollArea } from "@/components/ui/scroll-area"
-import { Avatar, AvatarFallback } from "@/components/ui/avatar"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+import { Button } from "../components/ui/button"
+import { Input } from "../components/ui/input"
+import { ScrollArea } from "../components/ui/scroll-area"
+import { Avatar, AvatarFallback } from "../components/ui/avatar"
+import { Card, CardContent } from "../components/ui/card"
+import { Badge } from "../components/ui/badge"
 import {
   Send,
   Paperclip,
@@ -48,7 +49,7 @@ interface ChatSession {
   type: "case-analysis" | "document-review" | "legal-research" | "general"
 }
 
-function App() {
+export default function LibraAI() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",
@@ -479,5 +480,3 @@ function App() {
     </div>
   )
 }
-
-export default App
