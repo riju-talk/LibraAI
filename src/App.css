@@ -1,7 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+@import "tailwindcss";
 /* Custom Navy and Yellow Color Variables */
 :root {
   --navy-950: #0c1426;
