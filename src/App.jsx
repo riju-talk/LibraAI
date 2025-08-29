@@ -79,7 +79,7 @@ function App() {
   const handleSendMessage = async () => {
     if (!inputValue.trim() && !selectedFile) return
 
-    const Message = {
+    const userMessage = {
       id: Date.now().toString(),
       content: inputValue || `Uploaded file: ${selectedFile?.name}`,
       sender: "user",
@@ -94,7 +94,7 @@ function App() {
 
     // Simulate AI response
     setTimeout(() => {
-      const Message = {
+      const aiResponse = {
         id: (Date.now() + 1).toString(),
         content: selectedFile
           ? `I've analyzed the uploaded document "${selectedFile.name}". Based on my review, I've identified several key legal considerations and potential areas of concern. Would you like me to provide a detailed breakdown of the findings?`
