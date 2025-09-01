@@ -28,10 +28,14 @@ import {
   Zap,
   Shield,
   TrendingUp,
+  User,
+  Github,
   Users,
   Brain,
   Target,
 } from "lucide-react"
+
+import { cn } from "../lib/utils"
 
 import './App.css'
 
@@ -207,35 +211,35 @@ function App() {
 
       {/* Sidebar */}
       <div className={cn(
-        "w-80 glass-primary border-r border-glass-border flex flex-col relative z-50 transition-transform duration-300",
-        "md:translate-x-0",
+        "w-80 bg-[#001D3D]/80 backdrop-blur-lg flex flex-col relative z-50 transition-transform duration-300",
+        "md:translate-x-0 shadow-2xl shadow-black/30",
         sidebarOpen ? "translate-x-0" : "-translate-x-full md:translate-x-0"
       )}>
         {/* Mobile Close Button */}
         <Button
           variant="ghost"
           size="icon-sm"
-          className="absolute top-4 right-4 md:hidden z-10"
+          className="absolute top-4 right-4 md:hidden text-[#EBEBEB] hover:text-[#FCA311] hover:bg-[#001D3D]"
           onClick={() => setSidebarOpen(false)}
         >
           <X className="w-4 h-4" />
         </Button>
 
         {/* Header */}
-        <div className="p-6 border-b border-glass-border">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-12 h-12 bg-gradient-to-br from-gold-500 to-gold-600 rounded-2xl flex items-center justify-center shadow-gold">
-              <Scale className="w-7 h-7 text-navy-900" />
+        <div className="p-6">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 bg-[#CCA000] rounded-2xl flex items-center justify-center">
+              <Scale className="w-6 h-6 text-[#001D3D]" />
             </div>
             <div>
-              <h1 className="text-2xl font-bold text-white">Libra AI</h1>
-              <p className="text-sm text-gold-300 font-medium">Legal Research Assistant</p>
+              <h1 className="text-2xl font-bold text-[#EBEBEB]">Libra AI</h1>
+              <p className="text-sm text-[#FCA311] font-medium">Legal Research Assistant</p>
             </div>
           </div>
           
           <Button 
-            variant="default" 
-            className="w-full h-12 text-base font-semibold shadow-gold"
+            variant="" 
+            className="w-full h-12 text-base font-semibold bg-[#FCA311] hover:bg-[#fff] text-[#001D3D] mt-6"
           >
             <Plus className="w-5 h-5 mr-2" />
             New Legal Query
@@ -243,117 +247,114 @@ function App() {
         </div>
 
         {/* AI Capabilities */}
-        <div className="p-4 border-b border-glass-border">
-          <h3 className="text-sm font-semibold text-white mb-4 flex items-center gap-2">
-            <Brain className="w-4 h-4 text-gold-400" />
+        <div className="px-4 py-2">
+          <h3 className="text-sm font-semibold text-[#EBEBEB] mb-3 flex items-center gap-2">
+            <Brain className="w-4 h-4 text-[#FCA311]" />
             AI Capabilities
           </h3>
           <div className="grid grid-cols-2 gap-2">
             <Button
-              variant="secondary"
+              variant="outline"
               size="sm"
-              className="h-auto p-3 flex flex-col items-center gap-2 group"
+              className="h-auto p-2 flex flex-col items-center gap-2 group bg-[#001D3D]/50 hover:bg-[#002752] border border-[#FCA311]/40"
             >
-              <Gavel className="w-5 h-5 text-gold-400 group-hover:text-gold-300 transition-colors" />
-              <span className="text-xs font-medium">Case Analysis</span>
+              <Gavel className="w-5 h-5 text-[#CCA000] group-hover:text-[#EBEBEB] transition-colors" />
+              <span className="text-xs font-medium text-[#EBEBEB]">Case Analysis</span>
             </Button>
             <Button
-              variant="secondary"
+              variant="outline"
               size="sm"
-              className="h-auto p-3 flex flex-col items-center gap-2 group"
+              className="h-auto p-2 flex flex-col items-center gap-2 group bg-[#001D3D]/50 hover:bg-[#002752] border border-[#FCA311]/40"
             >
-              <FileText className="w-5 h-5 text-gold-400 group-hover:text-gold-300 transition-colors" />
-              <span className="text-xs font-medium">Doc Review</span>
+              <FileText className="w-5 h-5 text-[#CCA000] group-hover:text-[#EBEBEB] transition-colors" />
+              <span className="text-xs font-medium text-[#EBEBEB]">Doc Review</span>
             </Button>
             <Button
-              variant="secondary"
+              variant="outline"
               size="sm"
-              className="h-auto p-3 flex flex-col items-center gap-2 group"
+              className="h-auto p-2 flex flex-col items-center gap-2 group bg-[#001D3D]/50 hover:bg-[#002752] border border-[#FCA311]/40"
             >
-              <Search className="w-5 h-5 text-gold-400 group-hover:text-gold-300 transition-colors" />
-              <span className="text-xs font-medium">Research</span>
+              <Search className="w-5 h-5 text-[#CCA000] group-hover:text-[#EBEBEB] transition-colors" />
+              <span className="text-xs font-medium text-[#EBEBEB]">Research</span>
             </Button>
             <Button
-              variant="secondary"
+              variant="outline"
               size="sm"
-              className="h-auto p-3 flex flex-col items-center gap-2 group"
+              className="h-auto p-2 flex flex-col items-center gap-2 group bg-[#001D3D]/50 hover:bg-[#002752] border border-[#FCA311]/40"
             >
-              <Shield className="w-5 h-5 text-gold-400 group-hover:text-gold-300 transition-colors" />
-              <span className="text-xs font-medium">Compliance</span>
+              <Shield className="w-5 h-5 text-[#CCA000] group-hover:text-[#EBEBEB] transition-colors" />
+              <span className="text-xs font-medium text-[#EBEBEB]">Compliance</span>
             </Button>
           </div>
         </div>
 
-        {/* Chat History */}
-        <div className="flex-1 p-4">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="text-sm font-semibold text-white flex items-center gap-2">
-              <History className="w-4 h-4 text-gold-400" />
+        {/* Recent Sessions */}
+        <div className="flex-1 px-4 py-2 overflow-hidden">
+          <div className="flex items-center justify-between mb-3 px-1">
+            <h3 className="text-sm font-semibold text-[#EBEBEB] flex items-center gap-2">
+              <History className="w-4 h-4 text-[#FCA311]" />
               Recent Sessions
             </h3>
-            <Badge variant="outline" className="text-xs">
+            <span className="text-xs px-2 py-1 rounded-full bg-[#001D3D]/70 text-[#EBEBEB] border border-[#EBEBEB]/10">
               {chatSessions.length} active
-            </Badge>
+            </span>
           </div>
           
-          <ScrollArea className="h-full">
-            <div className="space-y-3">
+          <div className="h-[calc(100%-40px)] overflow-y-auto pr-1 custom-scrollbar">
+            <div className="space-y-2 pr-1">
               {chatSessions.map((session) => (
-                <Card
+                <div
                   key={session.id}
-                  className="card-secondary cursor-pointer group hover:scale-[1.02] transition-all duration-300"
+                  className="p-3 rounded-xl bg-[#001D3D]/40 hover:bg-[#002752]/60 backdrop-blur-md transition-all duration-200 cursor-pointer group border border-[#EBEBEB]/10 hover:border-[#FCA311]/30 shadow-lg shadow-black/20 hover:shadow-[#FCA311]/10"
                 >
-                  <CardContent className="p-4">
-                    <div className="flex items-start gap-3 mb-3">
-                      <div className="p-2 rounded-xl bg-gold-500/20 text-gold-400 group-hover:bg-gold-500/30 transition-colors">
-                        {getSessionIcon(session.type)}
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h4 className="text-sm font-semibold text-white truncate group-hover:text-gold-100 transition-colors">
-                          {session.title}
-                        </h4>
-                        <p className="text-xs text-neutral-300 mt-1 line-clamp-2 leading-relaxed">
-                          {session.lastMessage}
-                        </p>
+                  <div className="flex items-start gap-3">
+                    <div className="p-2 rounded-lg bg-[#FCA311]/20 text-[#FCA311] group-hover:bg-[#FCA311]/30 transition-colors">
+                      {getSessionIcon(session.type)}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h4 className="text-sm font-medium text-[#EBEBEB] truncate">
+                        {session.title}
+                      </h4>
+                      <p className="text-xs text-[#FCA311]/80 mt-1 line-clamp-2 leading-relaxed">
+                        {session.lastMessage}
+                      </p>
+                      
+                      <div className="flex items-center justify-between mt-2">
+                        <div className="flex items-center gap-1.5">
+                          <span className={`text-[10px] px-2 py-0.5 rounded-full font-medium ${
+                            session.status === 'completed' ? 'bg-green-900/40 text-green-300 border border-green-800/50' :
+                            session.status === 'in-progress' ? 'bg-yellow-900/40 text-yellow-300 border border-yellow-800/50' :
+                            'bg-gray-700/40 text-gray-300 border border-gray-600/50'
+                          }`}>
+                            {session.status.replace('-', ' ')}
+                          </span>
+                          <span className={`text-[10px] px-2 py-0.5 rounded-full font-medium ${
+                            session.priority === 'high' ? 'bg-red-900/40 text-red-300 border border-red-800/50' :
+                            session.priority === 'medium' ? 'bg-yellow-900/40 text-yellow-300 border border-yellow-800/50' :
+                            'bg-gray-700/40 text-gray-300 border border-gray-600/50'
+                          }`}>
+                            {session.priority}
+                          </span>
+                        </div>
+                        <span className="text-xs text-[#CCA000] font-medium">
+                          {session.timestamp.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
+                        </span>
                       </div>
                     </div>
-                    
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <Badge variant={getStatusColor(session.status)} className="text-xs">
-                          {session.status}
-                        </Badge>
-                        <Badge variant={getPriorityColor(session.priority)} className="text-xs">
-                          {session.priority}
-                        </Badge>
-                      </div>
-                      <span className="text-xs text-gold-400 font-medium">
-                        {session.timestamp.toLocaleDateString()}
-                      </span>
-                    </div>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               ))}
             </div>
-          </ScrollArea>
+          </div>
         </div>
 
         {/* Footer */}
-        <div className="p-4 border-t border-glass-border">
-          <div className="space-y-2">
-            <Button 
-              variant="ghost" 
-              className="w-full justify-start text-neutral-300 hover:text-white group"
-            >
-              <Settings className="w-4 h-4 mr-3 group-hover:rotate-90 transition-transform duration-300" />
-              Settings & Preferences
-            </Button>
-            <div className="flex items-center justify-between text-xs text-neutral-400 pt-2">
-              <span>Libra AI v2.1</span>
-              <div className="flex items-center gap-1">
-                <div className="w-2 h-2 bg-success rounded-full status-online"></div>
-                <span>Online</span>
-              </div>
+        <div className="p-4 bg-[#001D3D]/60 backdrop-blur-sm border-t border-[#EBEBEB]/5">
+          <div className="flex items-center justify-between text-xs text-[#EBEBEB]/80">
+            <span className="font-medium">Libra AI v2.1</span>
+            <div className="flex items-center gap-1.5 px-2 py-1 rounded-full bg-[#001D3D] border border-[#EBEBEB]/10">
+              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+              <span className="text-[#EBEBEB]">Online</span>
             </div>
           </div>
         </div>
@@ -361,47 +362,43 @@ function App() {
 
       {/* Main Chat Area */}
       <div className="flex-1 flex flex-col relative z-10">
-        {/* Chat Header */}
-        <div className="p-4 border-b border-glass-border glass-primary">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <Button
-                variant="ghost"
-                size="icon-sm"
-                className="md:hidden"
-                onClick={() => setSidebarOpen(true)}
-              >
-                <Menu className="w-5 h-5" />
-              </Button>
-              
-              <div>
-                <h2 className="text-xl font-bold text-white flex items-center gap-2">
-                  Legal Research Session
-                  <Sparkles className="w-5 h-5 text-gold-400" />
-                </h2>
-                <p className="text-sm text-gold-300 font-medium">
-                  AI-powered legal analysis • Real-time insights
-                </p>
-              </div>
-            </div>
-            
-            <div className="flex items-center gap-3">
-              <div className="hidden sm:flex items-center gap-4 text-xs text-neutral-300">
-                <div className="flex items-center gap-1">
-                  <Target className="w-3 h-3 text-gold-400" />
-                  <span>98% Accuracy</span>
-                </div>
-                <div className="flex items-center gap-1">
-                  <TrendingUp className="w-3 h-3 text-success" />
-                  <span>Live Updates</span>
-                </div>
-              </div>
-              
-              <Badge variant="success" className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-white rounded-full status-online"></div>
-                AI Active
-              </Badge>
-            </div>
+        {/* Header with Author and GitHub Links */}
+        <div className="p-4 bg-[#000000] backdrop-blur-sm border-b border-[#EBEBEB]/10">
+          <div className="flex items-center gap-4 justify-end">
+            <button 
+              onClick={() => window.open('https://your-website.com', '_blank')}
+              className="px-4 py-2 rounded-md text-sm font-medium flex items-center gap-2 transition-colors"
+              style={{
+                backgroundColor: '#E5E5E5',
+                color: '#000000',
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.backgroundColor = '#FFFFFF';
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.backgroundColor = '#E5E5E5';
+              }}
+            >
+              <User className="w-4 h-4" />
+              <span>About Author</span>
+            </button>
+            <button
+              onClick={() => window.open('https://github.com/yourusername/LibraAI', '_blank')}
+              className="px-4 py-2 rounded-md text-sm font-medium flex items-center gap-2 transition-colors"
+              style={{
+                backgroundColor: '#FCA311',
+                color: '#000000',
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.backgroundColor = '#FFFFFF';
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.backgroundColor = '#FCA311';
+              }}
+            >
+              <Github className="w-4 h-4" />
+              <span>GitHub Repo</span>
+            </button>
           </div>
         </div>
 
@@ -414,8 +411,8 @@ function App() {
                 className={`flex gap-4 ${message.sender === "user" ? "justify-end" : "justify-start"}`}
               >
                 {message.sender === "ai" && (
-                  <Avatar className="w-10 h-10 ring-gold-500/50">
-                    <AvatarFallback className="bg-gradient-to-br from-gold-500 to-gold-600 text-navy-900">
+                  <Avatar className="w-10 h-10 ring-[#FCA311]/0">
+                    <AvatarFallback className="bg-gradient-to-br from-[#FCA311] to-[#F77F00] text-navy-900">
                       <Scale className="w-5 h-5" />
                     </AvatarFallback>
                   </Avatar>
@@ -424,9 +421,9 @@ function App() {
                 <div className={`max-w-[75%] ${message.sender === "user" ? "order-first" : ""}`}>
                   <Card className={`${
                     message.sender === "user" 
-                      ? "card-secondary ml-auto" 
-                      : "card-primary"
-                  } group`}>
+                      ? "bg-[#1A2D53] border-[#2A3A5F] ml-auto" 
+                      : "bg-[#14213D] border-[#2A3A5F]"
+                  } group border`}>
                     <CardContent className="p-5">
                       {message.file && (
                         <div className="mb-4 p-3 bg-gold-500/10 rounded-xl border border-gold-500/30 flex items-center gap-3">
@@ -482,31 +479,37 @@ function App() {
                 </div>
 
                 {message.sender === "user" && (
-                  <Avatar className="w-10 h-10 ring-navy-500/50">
-                    <AvatarFallback className="bg-gradient-to-br from-navy-600 to-navy-700 text-gold-300 font-semibold">
-                      <Users className="w-5 h-5" />
+                  <div className="relative">
+                  <div className="absolute inset-0 bg-[#FCA311]/20 blur-sm rounded-full"></div>
+                  <Avatar className="relative w-10 h-10 border-2 border-[#FCA311]/20">
+                    <AvatarFallback className="bg-gradient-to-br from-[#FCA311] to-[#F77F00] text-white">
+                      <User className="w-5 h-5" />
                     </AvatarFallback>
                   </Avatar>
+                </div>
                 )}
               </div>
             ))}
 
             {isTyping && (
               <div className="flex gap-4 justify-start">
-                <Avatar className="w-10 h-10 ring-gold-500/50">
-                  <AvatarFallback className="bg-gradient-to-br from-gold-500 to-gold-600 text-navy-900">
-                    <Scale className="w-5 h-5" />
-                  </AvatarFallback>
-                </Avatar>
-                <Card className="card-primary">
+                <div className="relative">
+                  <div className="absolute inset-0 bg-white/20 blur-sm rounded-full"></div>
+                  <Avatar className="relative w-10 h-10 border-2 border-white/20">
+                    <AvatarFallback className="bg-gradient-to-br from-white to-gray-200">
+                      <Scale className="w-5 h-5 text-[#14213D]" />
+                    </AvatarFallback>
+                  </Avatar>
+                </div>
+                <Card className="bg-[#14213D] border border-[#2A3A5F]">
                   <CardContent className="p-5">
                     <div className="flex items-center gap-2">
                       <div className="flex gap-1">
-                        <div className="w-2 h-2 bg-gold-400 rounded-full typing-dot"></div>
-                        <div className="w-2 h-2 bg-gold-400 rounded-full typing-dot"></div>
-                        <div className="w-2 h-2 bg-gold-400 rounded-full typing-dot"></div>
+                        <div className="w-2 h-2 bg-[#FCA311] rounded-full animate-pulse" style={{ animationDelay: '0ms' }}></div>
+                        <div className="w-2 h-2 bg-[#FCA311] rounded-full animate-pulse" style={{ animationDelay: '150ms' }}></div>
+                        <div className="w-2 h-2 bg-[#FCA311] rounded-full animate-pulse" style={{ animationDelay: '300ms' }}></div>
                       </div>
-                      <span className="text-xs text-neutral-400 ml-2">Analyzing legal context...</span>
+                      <span className="text-sm text-neutral-300 ml-2">Analyzing legal context...</span>
                     </div>
                   </CardContent>
                 </Card>
@@ -517,24 +520,24 @@ function App() {
         </ScrollArea>
 
         {/* Legal Tools Bar */}
-        <div className="px-4 py-3 glass-secondary border-t border-glass-border">
+        <div className="px-4 py-3 bg-[#001D3D] border-t border-[#14213D]">
           <div className="flex items-center justify-center gap-1 max-w-4xl mx-auto">
-            <Button variant="ghost" size="sm" className="text-xs flex items-center gap-2 text-gold-300 hover:text-white group">
+            <Button variant="ghost" size="sm" className="text-xs flex items-center gap-2 text-[#FCA311] hover:bg-[#FCA311]/10 hover:text-white group">
               <CheckCircle className="w-3 h-3 group-hover:scale-110 transition-transform" />
               <span>Verify Citations</span>
             </Button>
-            <div className="w-px h-4 bg-glass-border mx-2"></div>
-            <Button variant="ghost" size="sm" className="text-xs flex items-center gap-2 text-gold-300 hover:text-white group">
+            <div className="w-px h-4 bg-[#14213D] mx-2"></div>
+            <Button variant="ghost" size="sm" className="text-xs flex items-center gap-2 text-[#FCA311] hover:bg-[#FCA311]/10 hover:text-white group">
               <AlertCircle className="w-3 h-3 group-hover:scale-110 transition-transform" />
               <span>Risk Assessment</span>
             </Button>
-            <div className="w-px h-4 bg-glass-border mx-2"></div>
-            <Button variant="ghost" size="sm" className="text-xs flex items-center gap-2 text-gold-300 hover:text-white group">
+            <div className="w-px h-4 bg-[#14213D] mx-2"></div>
+            <Button variant="ghost" size="sm" className="text-xs flex items-center gap-2 text-[#FCA311] hover:bg-[#FCA311]/10 hover:text-white group">
               <Clock className="w-3 h-3 group-hover:scale-110 transition-transform" />
               <span>Timeline Builder</span>
             </Button>
-            <div className="w-px h-4 bg-glass-border mx-2"></div>
-            <Button variant="ghost" size="sm" className="text-xs flex items-center gap-2 text-gold-300 hover:text-white group">
+            <div className="w-px h-4 bg-[#14213D] mx-2"></div>
+            <Button variant="ghost" size="sm" className="text-xs flex items-center gap-2 text-[#FCA311] hover:bg-[#FCA311]/10 hover:text-white group">
               <Zap className="w-3 h-3 group-hover:scale-110 transition-transform" />
               <span>Quick Insights</span>
             </Button>
@@ -542,21 +545,21 @@ function App() {
         </div>
 
         {/* Input Area */}
-        <div className="p-4 border-t border-glass-border glass-primary">
+        <div className="p-4 bg-[#000000] border-t border-[#14213D]">
           <div className="max-w-4xl mx-auto">
             {selectedFile && (
-              <div className="mb-4 p-4 glass-accent rounded-2xl flex items-center justify-between border border-gold-500/30">
+              <div className="mb-4 p-4 bg-[#14213D] rounded-2xl flex items-center justify-between border border-[#FCA311]/30">
                 <div className="flex items-center gap-3">
-                  <div className="p-2 bg-gold-500/20 rounded-xl">
-                    <FileText className="w-5 h-5 text-gold-400" />
+                  <div className="p-2 bg-[#FCA311]/20 rounded-xl">
+                    <FileText className="w-5 h-5 text-[#FCA311]" />
                   </div>
                   <div>
                     <span className="text-sm font-medium text-white">{selectedFile.name}</span>
                     <div className="flex items-center gap-2 mt-1">
-                      <Badge variant="secondary" className="text-xs">
+                      <Badge className="text-xs bg-[#FCA311]/10 text-[#FCA311] hover:bg-[#FCA311]/20">
                         {(selectedFile.size / 1024).toFixed(1)} KB
                       </Badge>
-                      <span className="text-xs text-neutral-400">Ready for analysis</span>
+                      <span className="text-xs text-gray-400">Ready for analysis</span>
                     </div>
                   </div>
                 </div>
@@ -564,7 +567,7 @@ function App() {
                   variant="ghost"
                   size="icon-sm"
                   onClick={() => setSelectedFile(null)}
-                  className="text-neutral-400 hover:text-white"
+                  className="text-gray-400 hover:bg-[#FCA311]/10 hover:text-[#FCA311]"
                 >
                   <X className="w-4 h-4" />
                 </Button>
@@ -572,7 +575,26 @@ function App() {
             )}
 
             <div className="flex gap-3">
+              <div className="flex-1 relative">
+                <Input
+                  value={inputValue}
+                  onChange={(e) => setInputValue(e.target.value)}
+                  onKeyPress={(e) => e.key === 'Enter' && !e.shiftKey && handleSendMessage()}
+                  placeholder="Ask about legal cases, analyze documents, research precedents, or get compliance guidance..."
+                  className="pr-32 text-base bg-[#001D3D] text-white placeholder-gray-400"
+                />
+              </div>
+              
               <div className="flex gap-2">
+                <Button
+                  onClick={handleSendMessage}
+                  disabled={!inputValue.trim() && !selectedFile}
+                  variant="ghost"
+                  size="icon"
+                  className="h-12 w-12 hover:bg-[#FCA311]/10"
+                >
+                  <Send className={`w-5 h-5 ${!inputValue.trim() && !selectedFile ? 'text-gray-500' : 'text-[#FCA311]'}`} />
+                </Button>
                 <input
                   type="file"
                   ref={fileInputRef}
@@ -581,48 +603,20 @@ function App() {
                   className="hidden"
                 />
                 <Button
-                  variant="secondary"
+                  variant="ghost"
                   size="icon"
                   onClick={() => fileInputRef.current?.click()}
-                  className="group"
+                  className="h-12 w-12 hover:bg-[#FCA311]/10"
                 >
-                  <Paperclip className="w-5 h-5 group-hover:rotate-12 transition-transform" />
-                </Button>
-                <Button
-                  variant="secondary"
-                  size="icon"
-                  className="group"
-                >
-                  <ImageIcon className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                </Button>
-              </div>
-
-              <div className="flex-1 relative">
-                <Input
-                  value={inputValue}
-                  onChange={(e) => setInputValue(e.target.value)}
-                  onKeyPress={(e) => e.key === "Enter" && !e.shiftKey && handleSendMessage()}
-                  placeholder="Ask about legal cases, analyze documents, research precedents, or get compliance guidance..."
-                  className="pr-14 text-base"
-                />
-                <Button
-                  onClick={handleSendMessage}
-                  disabled={!inputValue.trim() && !selectedFile}
-                  variant="default"
-                  size="icon"
-                  className="absolute right-1 top-1 h-10 w-10 group"
-                >
-                  <Send className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  <Paperclip className="w-5 h-5 text-[#FCA311] hover:rotate-12 transition-transform" />
                 </Button>
               </div>
             </div>
-
-            <div className="flex items-center justify-between mt-3 text-xs text-neutral-400">
-              <div className="flex items-center gap-4">
-                <span className="flex items-center gap-1">
-                  <Shield className="w-3 h-3 text-gold-400" />
-                  Enterprise-grade security & confidentiality
-                </span>
+            
+            <div className="flex items-center justify-between mt-2 text-xs text-gray-400">
+              <div className="flex items-center gap-2">
+                <Shield className="w-3 h-3 text-[#FCA311]" />
+                <span>Enterprise-grade security & confidentiality</span>
               </div>
               <span className="hidden sm:block">Press Enter to send • Shift+Enter for new line</span>
             </div>
