@@ -2,6 +2,11 @@
 
 :root {
   --radius: 0.5rem;
+  --primary-dark: #001D3D;
+  --primary-blue: #003566;
+  --accent-gold: #CCA000;
+  --accent-yellow: #F5CC00;
+  --neutral-light: #EBEBEB;
 }
 
 html,
@@ -14,64 +19,134 @@ body,
     "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-blue) 100%);
 }
 
-/* Custom Navy and Yellow Color Classes */
-.bg-navy-950 {
-  background-color: #0c1426;
-}
-.bg-navy-900 {
-  background-color: #1e2a47;
-}
-.bg-navy-850 {
-  background-color: #2a3b5c;
-}
-.bg-navy-800 {
-  background-color: #364c71;
-}
-.bg-navy-750 {
-  background-color: #425d86;
-}
-.bg-navy-700 {
-  background-color: #4e6e9b;
-}
-.bg-navy-600 {
-  background-color: #5a7fb0;
+/* Background Animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
 }
 
-.text-navy-900 {
-  color: #1e2a47;
-}
-.text-navy-600 {
-  color: #5a7fb0;
-}
-
-.border-navy-700 {
-  border-color: #4e6e9b;
-}
-.border-navy-600 {
-  border-color: #5a7fb0;
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
 }
 
-.hover\:bg-navy-700:hover {
-  background-color: #4e6e9b;
-}
-.hover\:bg-navy-750:hover {
-  background-color: #425d86;
-}
-.hover\:border-yellow-500:hover {
-  border-color: #f59e0b;
-}
-
-.focus\:border-yellow-500:focus {
-  border-color: #f59e0b;
+.background-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+  pointer-events: none;
 }
 
-.bg-yellow-500\/20 {
-  background-color: rgba(245, 158, 11, 0.2);
+.background-animation::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at 20% 20%,
+    rgba(204, 160, 0, 0.1) 0%,
+    transparent 50%
+  ),
+  radial-gradient(
+    circle at 80% 80%,
+    rgba(245, 204, 0, 0.08) 0%,
+    transparent 50%
+  ),
+  radial-gradient(
+    circle at 40% 60%,
+    rgba(0, 53, 102, 0.15) 0%,
+    transparent 50%
+  );
+  animation: float 20s ease-in-out infinite;
 }
-.hover\:border-yellow-500\/50:hover {
-  border-color: rgba(245, 158, 11, 0.5);
+
+.background-animation::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse"><path d="M 60 0 L 0 0 0 60" fill="none" stroke="%23003566" stroke-width="0.5" opacity="0.1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)" /></svg>');
+  animation: pulse 10s ease-in-out infinite;
+}
+
+/* Updated Color Classes */
+.bg-primary-dark {
+  background-color: var(--primary-dark);
+}
+.bg-primary-blue {
+  background-color: var(--primary-blue);
+}
+.bg-accent-gold {
+  background-color: var(--accent-gold);
+}
+.bg-accent-yellow {
+  background-color: var(--accent-yellow);
+}
+.bg-neutral-light {
+  background-color: var(--neutral-light);
+}
+
+.text-primary-dark {
+  color: var(--primary-dark);
+}
+.text-primary-blue {
+  color: var(--primary-blue);
+}
+.text-accent-gold {
+  color: var(--accent-gold);
+}
+.text-accent-yellow {
+  color: var(--accent-yellow);
+}
+.text-neutral-light {
+  color: var(--neutral-light);
+}
+
+.border-primary-blue {
+  border-color: var(--primary-blue);
+}
+.border-accent-gold {
+  border-color: var(--accent-gold);
+}
+
+.hover\:bg-primary-blue:hover {
+  background-color: var(--primary-blue);
+}
+.hover\:bg-accent-gold:hover {
+  background-color: var(--accent-gold);
+}
+.hover\:border-accent-yellow:hover {
+  border-color: var(--accent-yellow);
+}
+
+.focus\:border-accent-yellow:focus {
+  border-color: var(--accent-yellow);
+}
+
+.bg-accent-gold\/20 {
+  background-color: rgba(204, 160, 0, 0.2);
+}
+.hover\:border-accent-yellow\/50:hover {
+  border-color: rgba(245, 204, 0, 0.5);
 }
 
 .line-clamp-2 {
@@ -79,4 +154,17 @@ body,
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+/* Glass morphism effect */
+.glass {
+  background: rgba(0, 29, 61, 0.8);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(245, 204, 0, 0.2);
+}
+
+.glass-light {
+  background: rgba(0, 53, 102, 0.6);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(204, 160, 0, 0.3);
 }

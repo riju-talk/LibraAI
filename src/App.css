@@ -1,107 +1,123 @@
 @import "tailwindcss";
-/* Custom Navy and Yellow Color Variables */
+
+/* Updated Color Variables based on provided palette */
 :root {
-  --navy-950: #0c1426;
-  --navy-900: #1e2a47;
-  --navy-850: #2a3b5c;
-  --navy-800: #364c71;
-  --navy-750: #425d86;
-  --navy-700: #4e6e9b;
-  --navy-600: #5a7fb0;
-  --yellow-300: #fcd34d;
-  --yellow-400: #fbbf24;
-  --yellow-500: #f59e0b;
-  --yellow-600: #d97706;
+  --primary-dark: #001D3D;
+  --primary-blue: #003566;
+  --accent-gold: #CCA000;
+  --accent-yellow: #F5CC00;
+  --neutral-light: #EBEBEB;
+  --glass-bg: rgba(0, 29, 61, 0.8);
+  --glass-border: rgba(245, 204, 0, 0.2);
 }
 
-/* Navy Background Colors */
-.bg-navy-950 {
-  background-color: var(--navy-950) !important;
+/* Updated Background Colors */
+.bg-primary-dark {
+  background-color: var(--primary-dark) !important;
 }
-.bg-navy-900 {
-  background-color: var(--navy-900) !important;
+.bg-primary-blue {
+  background-color: var(--primary-blue) !important;
 }
-.bg-navy-850 {
-  background-color: var(--navy-850) !important;
+.bg-accent-gold {
+  background-color: var(--accent-gold) !important;
 }
-.bg-navy-800 {
-  background-color: var(--navy-800) !important;
+.bg-accent-yellow {
+  background-color: var(--accent-yellow) !important;
 }
-.bg-navy-750 {
-  background-color: var(--navy-750) !important;
+.bg-neutral-light {
+  background-color: var(--neutral-light) !important;
 }
-.bg-navy-700 {
-  background-color: var(--navy-700) !important;
-}
-.bg-navy-600 {
-  background-color: var(--navy-600) !important;
-}
-
-/* Navy Text Colors */
-.text-navy-900 {
-  color: var(--navy-900) !important;
-}
-.text-navy-600 {
-  color: var(--navy-600) !important;
+.bg-glass {
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid var(--glass-border) !important;
 }
 
-/* Yellow Colors */
-.bg-yellow-500 {
-  background-color: var(--yellow-500) !important;
+/* Updated Text Colors */
+.text-primary-dark {
+  color: var(--primary-dark) !important;
 }
-.bg-yellow-600 {
-  background-color: var(--yellow-600) !important;
+.text-primary-blue {
+  color: var(--primary-blue) !important;
 }
-.text-yellow-300 {
-  color: var(--yellow-300) !important;
+.text-accent-gold {
+  color: var(--accent-gold) !important;
 }
-.text-yellow-500 {
-  color: var(--yellow-500) !important;
+.text-accent-yellow {
+  color: var(--accent-yellow) !important;
 }
-
-/* Navy Border Colors */
-.border-navy-700 {
-  border-color: var(--navy-700) !important;
-}
-.border-navy-600 {
-  border-color: var(--navy-600) !important;
+.text-neutral-light {
+  color: var(--neutral-light) !important;
 }
 
-/* Hover States */
-.hover\:bg-navy-700:hover {
-  background-color: var(--navy-700) !important;
+/* Accent Colors */
+.bg-accent-gold {
+  background-color: var(--accent-gold) !important;
 }
-.hover\:bg-navy-750:hover {
-  background-color: var(--navy-750) !important;
+.bg-accent-yellow {
+  background-color: var(--accent-yellow) !important;
 }
-.hover\:bg-yellow-600:hover {
-  background-color: var(--yellow-600) !important;
+.text-accent-gold {
+  color: var(--accent-gold) !important;
 }
-
-.hover\:border-yellow-500:hover {
-  border-color: var(--yellow-500) !important;
-}
-
-/* Focus States */
-.focus\:border-yellow-500:focus {
-  border-color: var(--yellow-500) !important;
-}
-.focus\:ring-yellow-500\/20:focus {
-  --tw-ring-color: rgb(245 158 11 / 0.2) !important;
+.text-accent-yellow {
+  color: var(--accent-yellow) !important;
 }
 
-/* Additional Navy Color Variations */
-.bg-navy-900\/30 {
-  background-color: rgba(30, 42, 71, 0.3) !important;
+/* Updated Border Colors */
+.border-primary-blue {
+  border-color: var(--primary-blue) !important;
 }
-.bg-navy-900\/50 {
-  background-color: rgba(30, 42, 71, 0.5) !important;
+.border-accent-gold {
+  border-color: var(--accent-gold) !important;
 }
-.bg-yellow-500\/20 {
-  background-color: rgba(245, 158, 11, 0.2) !important;
+.border-accent-yellow {
+  border-color: var(--accent-yellow) !important;
 }
-.hover\:border-yellow-500\/50:hover {
-  border-color: rgba(245, 158, 11, 0.5) !important;
+
+/* Updated Hover States */
+.hover\:bg-primary-blue:hover {
+  background-color: var(--primary-blue) !important;
+}
+.hover\:bg-accent-gold:hover {
+  background-color: var(--accent-gold) !important;
+}
+.hover\:bg-accent-yellow:hover {
+  background-color: var(--accent-yellow) !important;
+}
+.hover\:border-accent-yellow:hover {
+  border-color: var(--accent-yellow) !important;
+}
+.hover\:border-accent-gold:hover {
+  border-color: var(--accent-gold) !important;
+}
+
+/* Updated Focus States */
+.focus\:border-accent-yellow:focus {
+  border-color: var(--accent-yellow) !important;
+}
+.focus\:ring-accent-yellow\/20:focus {
+  --tw-ring-color: rgba(245, 204, 0, 0.2) !important;
+}
+.focus\:ring-accent-gold\/20:focus {
+  --tw-ring-color: rgba(204, 160, 0, 0.2) !important;
+}
+
+/* Updated Color Variations */
+.bg-primary-dark\/30 {
+  background-color: rgba(0, 29, 61, 0.3) !important;
+}
+.bg-primary-blue\/50 {
+  background-color: rgba(0, 53, 102, 0.5) !important;
+}
+.bg-accent-gold\/20 {
+  background-color: rgba(204, 160, 0, 0.2) !important;
+}
+.bg-accent-yellow\/20 {
+  background-color: rgba(245, 204, 0, 0.2) !important;
+}
+.hover\:border-accent-yellow\/50:hover {
+  border-color: rgba(245, 204, 0, 0.5) !important;
 }
 
 /* Utility Classes */
